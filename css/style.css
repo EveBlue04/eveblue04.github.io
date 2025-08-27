@@ -81,8 +81,83 @@ textarea {
 }
 
 /* ==========================================================================
-   Author's custom styles
+   Navigation Bar Styles
    ========================================================================== */
+
+/* 导航栏横排及下拉菜单样式 */
+nav {
+  background: #f8f8f8;
+  border-bottom: 1px solid #e0e0e0;
+  font-family: Arial, sans-serif;
+}
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+nav > ul {
+  display: flex;
+  justify-content: flex-start;
+}
+nav ul li {
+  position: relative;
+}
+nav > ul > li {
+  margin-right: 30px;
+}
+nav a {
+  display: block;
+  padding: 14px 20px;
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.2s, color 0.2s;
+}
+nav a:hover, nav li:hover > a {
+  background: #0078d7;
+  color: #fff;
+}
+/* 下拉菜单样式 */
+nav ul ul {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
+  min-width: 220px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  z-index: 100;
+}
+nav ul ul li {
+  width: 100%;
+}
+nav ul ul a {
+  padding: 12px 20px;
+  font-weight: normal;
+  color: #333;
+  background: #fff;
+}
+nav ul ul a:hover {
+  background: #e6f0fa;
+  color: #0078d7;
+}
+nav ul li:hover > ul {
+  display: block;
+}
+/* 多级下拉菜单支持 */
+nav ul ul ul {
+  left: 100%;
+  top: 0;
+  margin-left: 1px;
+}
+@media (max-width: 800px) {
+  nav > ul {
+    flex-direction: column;
+  }
+  nav > ul > li {
+    margin-right: 0;
+  }
+}
 
 /* ==========================================================================
    Helper classes
@@ -244,4 +319,3 @@ textarea {
     page-break-after: avoid;
   }
 }
-
