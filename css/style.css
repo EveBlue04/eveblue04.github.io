@@ -7,10 +7,7 @@ body {
   background-position: top center;
   background-attachment: fixed;
 }
-.navbar a:hover {
-  background: #1a232c;
-  border-radius: 4px;
-}
+
 .home-main {
   display: flex;
   height: 400px;
@@ -187,22 +184,4 @@ body {
   color: #555;
   font-size: 18px;
 }
-.navbar {
-  background: #2d3e50;
-  padding: 0 0 0 20px;
-}
-.navbar ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-}
-.navbar li {
-  margin-right: 30px;
-}
-.navbar a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 18px;
-  line-height: 50px;
-}
+

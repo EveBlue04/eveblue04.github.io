@@ -1,6 +1,10 @@
 // ICII全景中国地图ECharts实现（ECharts 6.x，需手动加载geoJSON）
 window.onload = function() {
   var chartDom = document.getElementById('china-map');
+  if (!chartDom) {
+    console.error('未找到地图容器元素，可能是加载出问题了，尝试刷新页面看看？');
+    return;
+  }
   var myChart = echarts.init(chartDom);
   fetch('js/vendor/china.json')
     .then(res => res.json())
@@ -19,6 +23,8 @@ window.onload = function() {
             type: 'map',
             map: 'china',
             roam: true,
+            layoutCenter: ['50%', '50%'], // 保证地图内容居中
+            layoutSize: '90%', // 保证地图内容有留白，不贴边
             itemStyle: {
               areaColor: '#3399ff', // 蓝色
               borderColor: '#fff',
@@ -32,8 +38,22 @@ window.onload = function() {
             label: {
               show: true,
               color: '#fff',
-              fontSize: 12
+              fontSize: 12,
+              emphasis: {
+                color: '#ff0', // hover时字体高亮
+                fontWeight: 'bold'
+              }
             },
             data: []
           }
-
+        ]
+      };
+      myChart.setOption(option);
+      window.addEventListener('resize', function() {
+        myChart.resize();
+      });
+    })
+    .catch(err => {
+      console.error('中国地图geoJSON加载失败:', err);
+    });
+};

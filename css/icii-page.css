@@ -1,0 +1,51 @@
+body.icii-body {
+  width: 100vw;
+  margin: 0;
+  font-family: '微软雅黑', Arial, sans-serif;
+  background-image: url('../img/bg_c_paper.png');
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+  background-position: top center;
+  background-attachment: fixed;
+}
+
+
+.icii-main {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#china-map {
+  width: 50vw;
+  height: 80vh;
+  margin: 40px;
+  background: #222;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  overflow: hidden;//圆角消失修复
+  padding: 16px;//+1
+  box-sizing: border-box;//+1
+}
+
+#description{
+  width: 20vw;
+  margin: 100px;
+}
+.description-txt {
+  font-size: 24px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+@media (max-width: 900px) {
+  #china-map {
+    width: 98vw;
+    height: 60vw;
+    min-height: 320px;
+  }
+}
