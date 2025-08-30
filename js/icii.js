@@ -1,21 +1,39 @@
-// ICII全景地图交互占位脚本
-// 实际地图和队伍数据需后续补充
-const mapTooltip = document.getElementById('map-tooltip');
-const mapSvg = document.querySelector('.map-svg');
-if(mapSvg && mapTooltip) {
-  mapSvg.addEventListener('mouseover', function(e) {
-    mapTooltip.style.display = 'block';
-    mapTooltip.textContent = '示例：江苏省 - NAU-China队伍';
-  });
-  mapSvg.addEventListener('mousemove', function(e) {
-    mapTooltip.style.left = (e.pageX - mapSvg.offsetLeft + 20) + 'px';
-    mapTooltip.style.top = (e.pageY - mapSvg.offsetTop + 20) + 'px';
-  });
-  mapSvg.addEventListener('mouseout', function() {
-    mapTooltip.style.display = 'none';
-  });
-  mapSvg.addEventListener('click', function() {
-    window.location.href = 'team.html';
-  });
-}
+// ICII全景中国地图ECharts实现（ECharts 6.x，需手动加载geoJSON）
+window.onload = function() {
+  var chartDom = document.getElementById('china-map');
+  var myChart = echarts.init(chartDom);
+  fetch('js/vendor/china.json')
+    .then(res => res.json())
+    .then(geoJson => {
+      echarts.registerMap('china', geoJson);
+      var option = {
+        tooltip: {
+          trigger: 'item',
+          formatter: function(params) {
+            return params.name;
+          }
+        },
+        series: [
+          {
+            name: '中国',
+            type: 'map',
+            map: 'china',
+            roam: true,
+            itemStyle: {
+              areaColor: '#3399ff', // 蓝色
+              borderColor: '#fff',
+              borderWidth: 1,
+              emphasis: {
+                areaColor: '#005fae', // hover时深蓝色
+                shadowBlur: 10,
+                shadowColor: 'rgba(0,0,0,0.3)'
+              }
+            },
+            label: {
+              show: true,
+              color: '#fff',
+              fontSize: 12
+            },
+            data: []
+          }
 

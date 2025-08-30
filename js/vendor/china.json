@@ -1,0 +1,8 @@
+// 中国地图geoJSON数据请从官方仓库下载后放置此处
+// https://github.com/apache/echarts/blob/main/map/json/china.json
+// 本文件仅为占位，实际部署时请用真实china.json替换
+{
+  "type": "FeatureCollection",
+  "features": []
+}
+

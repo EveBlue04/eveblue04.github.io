@@ -1,5 +1,11 @@
-  display: block;
-  padding: 0 10px;
+body {
+  margin: 0;
+  font-family: '微软雅黑', Arial, sans-serif;
+  background-image: url('../img/bg_c_paper.png');
+  background-repeat: repeat-y;
+  background-size: 100% auto;
+  background-position: top center;
+  background-attachment: fixed;
 }
 .navbar a:hover {
   background: #1a232c;
@@ -181,11 +187,6 @@
   color: #555;
   font-size: 18px;
 }
-body {
-  margin: 0;
-  font-family: '微软雅黑', Arial, sans-serif;
-  background: #f7f7f7;
-}
 .navbar {
   background: #2d3e50;
   padding: 0 0 0 20px;
@@ -204,4 +205,4 @@ body {
   text-decoration: none;
   font-size: 18px;
   line-height: 50px;
-
+}
