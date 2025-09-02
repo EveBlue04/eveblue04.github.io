@@ -1,6 +1,6 @@
 body.icii-body {
   width: 100vw;
-  margin: 0;
+  position: absolute;
   font-family: '微软雅黑', Arial, sans-serif;
   background-image: url('../img/bg_c_paper.png');
   background-repeat: repeat-y;
@@ -9,43 +9,97 @@ body.icii-body {
   background-attachment: fixed;
 }
 
+.icii-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 16px 32px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.textbox {
+
+  padding: 32px 36px;
+  margin-bottom: 32px;
+  margin-top: 160px;
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+}
+
+.title-icii {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 18px;
+  color: #2a2a2a;
+}
+
+.text-content {
+  font-size: 2.15rem;
+  color: #444;
+  line-height: 1.8;
+}
 
 .icii-main {
-  width: 100vw;
-  min-height: 100vh;
+  width: 100%;
+  max-width: 1100px;
+  min-height: 60vh;
   display: flex;
   flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 40px;
 }
-
+h2{
+  font-size: 8.5rem;
+}
 #china-map {
-  width: 50vw;
-  height: 80vh;
-  margin: 40px;
-  background: #222;
-  border-radius: 12px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-  overflow: hidden;//圆角消失修复
-  padding: 16px;//+1
-  box-sizing: border-box;//+1
+  width: 78vw;
+  min-width: 320px;
+  max-width: 1200px;
+  height: 60vh;
+  min-height: 320px;
+  overflow: hidden;
+  padding: 16px;
+  box-sizing: border-box;
+  margin: 0;
 }
 
-#description{
-  width: 20vw;
-  margin: 100px;
+#description {
+  width: 22vw;
+  min-width: 220px;
+  max-width: 340px;
+  margin: 0;
+  background: rgba(255,255,255,0.92);
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  padding: 24px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.description-txt {
-  font-size: 24px;
-  font-weight: 600;
+#description_txt {
+  font-size: 1.1rem;
   color: #333;
-  margin-bottom: 12px;
+  line-height: 1.7;
+  text-align: left;
 }
 
 @media (max-width: 900px) {
-  #china-map {
-    width: 98vw;
-    height: 60vw;
-    min-height: 320px;
+  .icii-main {
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+  }
+  #china-map, #description {
+    width: 96vw;
+    max-width: 98vw;
+    min-width: unset;
+    height: 48vw;
+    min-height: 220px;
+  }
+  #description {
+    padding: 18px 8px;
   }
 }

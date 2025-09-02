@@ -1,8 +1,11 @@
 .navbar {
   background: #9e794d;
   margin: 2rem;
+  width: 97%;
+  position: fixed;
   box-shadow: 0 4px 24px rgba(0,0,0,0.08);
   border-radius: 1.6rem;
+  z-index: 10000;
 }
 .navbar ul {
   list-style: none;
