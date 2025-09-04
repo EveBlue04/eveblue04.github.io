@@ -5,20 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="84e871f2-935e-4c10-a048-7b24cfd54428" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/css/mainpage.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/mainpage_img/1 (1).jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/mainpage_img/cloud_left_top.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/mainpage_img/mount-left.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/mainpage_img/mount-right.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/mainpage_img/pageroad.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img/mainpage_img/road.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js/mainpage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/copilotDiffState.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/icii-page.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/icii-page.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/nav.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/nav.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/icii.html" beforeDir="false" afterPath="$PROJECT_DIR$/icii.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +72,7 @@
       <workItem from="1756622282064" duration="5116000" />
       <workItem from="1756689521083" duration="363000" />
       <workItem from="1756689895676" duration="9596000" />
-      <workItem from="1756785939614" duration="5502000" />
+      <workItem from="1756785939614" duration="8167000" />
     </task>
     <servers />
   </component>
