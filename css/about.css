@@ -1,0 +1,180 @@
+.container {
+    width: 100%;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 100px;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.page-title {
+    margin-bottom: 30px;
+    display: flex;
+    margin: 1px auto;
+}
+
+.typed-element-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.typing {
+    font-size: 64px;
+    margin: 0;
+    padding-right: 10px;
+    font-family: 'Playfair Display', 'Georgia', serif;
+    /* 更优雅的衬线字体 */
+    font-weight: 700;
+    color: #f8f8f8;
+
+    /* 文字描边（Webkit 特有，但广泛支持） */
+    -webkit-text-stroke: 1.5px #333;
+    /* 黑色描边 */
+    -webkit-text-fill-color: #f8f8f8;
+
+    /* 添加阴影提升可读性和质感 */
+    text-shadow:
+        0 2px 5px rgba(0, 0, 0, 0.5),
+        0 0 15px rgba(255, 215, 0, 0.3);
+    /* 金色微光，象征丝绸之路 */
+
+    /* 防止描边导致的字体模糊 */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+.typed-cursor {
+    font-size: 64px;
+    opacity: 1;
+    animation: blink 0.8s infinite;
+    color: #ffd700;
+    /* 金色光标，呼应主题 */
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+/* 响应式：小屏幕下调小字号 */
+@media (max-width: 768px) {
+    .typing {
+        font-size: 36px;
+        -webkit-text-stroke: 1px #333;
+    }
+
+    .typed-cursor {
+        font-size: 36px;
+    }
+
+    .container {
+        padding-top: 80px;
+        height: auto;
+        padding: 40px 20px;
+    }
+}
+
+/* 设置主容器样式 */
+.mainP {
+    max-width: 900px;
+    margin: 40px auto;
+    font-family: "Georgia", "Times New Roman", serif;
+    color: #2d2d2d;
+    text-align: justify;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+}
+
+.mainP p {
+    margin-bottom: 30px;
+    text-indent: 2em;
+}
+
+.mainP p strong {
+    color: #6b4a3c;
+    font-weight: 600;
+}
+
+.mainP p:first-child {
+    font-weight: 500;
+    margin-top: 20px;
+}
+
+.mainP {
+    max-width: 900px;
+    margin: 40px auto;
+    font-family: "Georgia", "Times New Roman", serif;
+    line-height: 1.8;
+    color: #2d2d2d;
+    text-align: justify;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+    padding: 30px;
+    position: relative;
+    border: 2px solid #a68a70;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+
+.mainP::before {
+    top: -20px;
+    left: -20px;
+    transform: rotate(-45deg);
+}
+
+.mainP::after {
+    bottom: -20px;
+    right: -20px;
+    transform: rotate(45deg);
+}
+
+.mainP .top-left-corner {
+    top: -10px;
+    left: -10px;
+}
+
+.mainP .bottom-right-corner {
+    bottom: -10px;
+    right: -10px;
+}
+
+/* 段落样式 */
+.mainP p {
+    margin-bottom: 30px;
+    text-indent: 2em;
+}
+
+.mainP p:first-child {
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .mainP {
+        font-size: 16px;
+        line-height: 1.6;
+        margin: 20px 20px;
+    }
+
+    .mainP p {
+        margin-bottom: 20px;
+        text-indent: 1.5em;
+    }
+}

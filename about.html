@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ICII 2025 - 关于我们</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/about.css">
 </head>
+
 <body>
   <nav class="navbar">
     <ul>
@@ -17,13 +20,104 @@
       <li><a href="about.html">关于我们</a></li>
     </ul>
   </nav>
-  <main class="about-main">
-    <h1>关于我们</h1>
-    <section class="about-section">网页创立初衷与今年灵感来源</section>
-    <section class="about-section">团队项目介绍</section>
-    <section class="about-section">HP工作介绍</section>
-    <section class="about-section">联系方式</section>
+
+
+  <div class="container">
+    <div class="page-title">
+      <div class="typed-element-title">
+        <h1 class="typing"></h1>
+        <span class="typed-cursor">|</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const typingElement = document.querySelector('.typing');
+      const cursorElement = document.querySelector('.typed-cursor');
+      const text = "Behind ICII: NAU-CHINA's Story"; // 要打出的文字
+      let index = 0;
+      let isDeleting = false;
+      let isEnd = false;
+      let typingSpeed = 150; // 打字速度（毫秒）
+
+      function type() {
+        const currentText = text.substring(0, index);
+        typingElement.textContent = currentText;
+
+        if (!isDeleting && index < text.length) {
+          // 打字
+          index++;
+          setTimeout(type, typingSpeed);
+        } else if (isDeleting && index >= 0) {
+          // 删除
+          index--;
+          setTimeout(type, typingSpeed / 4);
+        } else {
+          // 切换
+          isDeleting = !isDeleting;
+          if (!isDeleting) {
+            isEnd = true;
+            // 完成一轮后稍作停顿再开始删除
+            setTimeout(type, 1000);
+          } else {
+            // 开始删除前短暂停顿
+            setTimeout(type, 800);
+          }
+        }
+      }
+
+      // 启动打字效果
+      setTimeout(type, 500);
+    });
+  </script>
+  <div class="mainP">
+    <P>
+      When we first beheld the warm, smooth texture of the bacterial cellulose membrane, and when the dyeing experiment
+      that regulates microbial metabolism finally yielded the ideal natural hue, every member of our NAU-CHINA team
+      suddenly recalled the description of the ancient Silk Road from our textbooks: More than 2,000 years ago, Chinese
+      silk traversed deserts and oceans, carrying the warmth and craftsmanship of the East, and became a token
+      connecting diverse civilizations. It was also at that moment that a vague idea began to take shape: Could the
+      bio-based material in our hands become the "silk" of the new era, enabling a dialogue spanning millennia between
+      traditional Chinese culture and synthetic biology technology?
+    </P>
+    <p>
+      When we first launched the "Temperature Controlled One-step Synthesis of Colored Bacterial Cellulose" project, our
+      goal was simple —— we only wanted to find a more environmentally friendly path for the heavily polluting
+      traditional textile industry. During our extensive research, the wisdom of ancient textile craftsmen inadvertently
+      struck a chord with us: The ancients wove magnificent brocades using natural mulberry silk and breathed life into
+      fabrics with plant-based dyes. Their creation philosophy of harmonizing with nature and respecting materials
+      shared an unexpected cross-temporal rapport with our original aspiration to develop degradable bacterial cellulose
+      and pursue low-carbon dyeing. We gradually realized that this technology should not be limited to solving
+      environmental problems alone; it could perhaps serve as a bridge, allowing young people to discover
+      forward-thinking wisdom hidden in traditional culture, and enabling the world to once again understand the
+      resilience and warmth of Chinese culture through the carrier of "textiles".
+    </p>
+    <p>
+      Thus, the idea of setting ICII 2025’s theme as "A Dialogue Spanning Millennia —— the Modern Silk Road of Synthetic
+      Biology" came into being. We did not want this resonance between technology and tradition to remain confined to
+      our laboratory. We hoped to invite more like-minded peers to jointly build this modern Silk Road dedicated to
+      synthetic biology. Every step, from initially marking potential participating cities on a map, to sending out
+      anxious invitation emails to other teams time and again, to cheering aloud when we received the first positive
+      response, was filled with uncertainty. Yet, our original aspiration to pass on this inspiration, linking culture
+      and science through a new "Silk Road", kept us remarkably steadfast.
+    </p>
+    <p>
+      After all, from the emotional communication carried by silk on the ancient Silk Road to the technological dialogue
+      enabled by synthetic biology today, what remains unchanged is the core of Chinese culture: openness,
+      inclusiveness, exchange, and mutual learning. This is the spiritual thread that connects our modern endeavor to
+      the legacy of the ancient Silk Road, and the foundation upon which we’ve built ICII.
+    </p>
+    <p>
+      We know that compared to the grandeur of the ancient Silk Road, ICII is still at the very beginning of its
+      journey. But just as the ancients never imagined that silk would change the world when they planted the first
+      mulberry tree, we also hold this hope: Starting with every experiment in the laboratory, and taking the
+      collaboration of 13 teams as a link, our original aspiration of telling Chinese cultural stories through
+      technology will gradually grow into an answer that belongs to our generation of researchers on this "Modern Silk
+      Road".
+    </P>
+  </div>
   </main>
 </body>
-</html>
 
+</html>
