@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="84e871f2-935e-4c10-a048-7b24cfd54428" name="更改" comment="">
-      <change afterPath="$PROJECT_DIR$/img/header.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/copilotDiffState.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/nav.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/nav.css" afterDir="false" />
-    </list>
+    <list default="true" id="84e871f2-935e-4c10-a048-7b24cfd54428" name="更改" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -81,7 +76,7 @@
       <workItem from="1757125752722" duration="51000" />
       <workItem from="1757157440677" duration="879000" />
       <workItem from="1757158333463" duration="116000" />
-      <workItem from="1757158501809" duration="706000" />
+      <workItem from="1757158501809" duration="1205000" />
     </task>
     <servers />
   </component>
