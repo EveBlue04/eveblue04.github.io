@@ -1,0 +1,297 @@
+:root {
+    --main-bg: #388478;
+    --cultural-color: #E2C1B0;
+    --tech-color: #9F4A2D;
+    --eco-color: #28292B;
+    --future-color: #7FCCB4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--main-bg);
+    color: white;
+    font-family: 'Cambria', serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+    margin-top: 5.5rem;
+    /* ≈ 88px，留出 navbar 及其上下 margin 的空间 */
+}
+
+/* Left Navigation */
+
+
+.left-nav {
+    top: 5.5rem;
+    /* 与 .container 的 margin-top 一致 */
+    height: calc(100vh - 5.5rem);
+    /* 剩余视口高度 */
+    width: 25%;
+    position: fixed;
+    background-color: #2d7062;
+    padding: 40px 20px;
+    position: fixed;
+    overflow-y: auto;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-title {
+    color: var(--cultural-color);
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(226, 193, 176, 0.3);
+}
+
+.team-list {
+    list-style: none;
+}
+
+.team-list a {
+    color: var(--cultural-color);
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: block;
+    padding: 5px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.team-list a:hover {
+    background-color: rgba(159, 74, 45, 0.2);
+}
+
+.team-list a.active {
+    color: white;
+    background-color: var(--tech-color);
+    font-weight: bold;
+}
+
+.team-list a.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 4px;
+    background-color: var(--future-color);
+}
+
+/* Main Content */
+.main-content {
+    width: 65%;
+    margin-left: 20%;
+    padding: 60px 100px 80px;
+}
+
+.team-section {
+    min-height: 100vh;
+    margin-bottom: 100px;
+    display: grid;
+    grid-template-rows: 0.8fr min-content 1fr;
+    gap: 30px;
+    gap: 30px;
+}
+
+/* Poster Section */
+.poster-container {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.poster {
+    width: 100%;
+    height: 90%;
+    background: linear-gradient(135deg, #2a6a5f 0%, #1e4d43 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(226, 193, 176, 0.2);
+}
+
+.poster img {
+    max-width: 95%;
+    max-height: 95%;
+    object-fit: contain;
+}
+
+/* Project Description */
+.project-description {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 25px;
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.project-description p {
+    text-align: left;
+    text-indent: 2em;
+    margin-bottom: 1.5em;
+}
+
+/* Cultural Connection */
+.cultural-connection {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    height: 100%;
+}
+
+.cultural-image {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.cultural-image::before {
+    content: '';
+    display: block;
+    padding-top: 75%;
+    /* 4:3 aspect ratio */
+}
+
+.cultural-image img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+}
+
+.cultural-text {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 25px;
+    overflow-y: auto;
+}
+
+.cultural-text h3 {
+    color: var(--cultural-color);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(226, 193, 176, 0.3);
+    padding-bottom: 10px;
+}
+
+.cultural-text p {
+    line-height: 1.7;
+    margin-bottom: 1.2em;
+}
+
+.tech-highlight {
+    color: var(--tech-color);
+    font-weight: bold;
+}
+
+/* 当没有文化图片时，文字占满整行 */
+.cultural-connection.no-image {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+}
+
+.cultural-connection.no-image .cultural-text {
+    grid-column: 1;
+    width: 100%;
+    max-width: none;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .main-content {
+        width: 70%;
+        margin-left: 25%;
+    }
+
+    .cultural-connection {
+        grid-template-columns: 100%;
+        grid-template-rows: 40% 60%;
+    }
+}
+
+@media (max-width: 992px) {
+    .left-nav {
+        width: 25%;
+    }
+
+    .main-content {
+        width: 70%;
+        margin-left: 25%;
+        padding: 40px 25px;
+    }
+
+    .team-section {
+        grid-template-rows: 35% 20% 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .left-nav {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 20px;
+        max-height: 300px;
+    }
+
+    .main-content {
+        width: 100%;
+        margin-left: 0;
+        padding: 30px 20px;
+    }
+
+    .team-section {
+        grid-template-rows: 30% 25% 45%;
+    }
+
+    .cultural-connection {
+        grid-template-columns: 100%;
+        grid-template-rows: 40% 60%;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-title {
+        font-size: 1.4rem;
+    }
+
+    .team-list a {
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    .team-section {
+        grid-template-rows: 25% 30% 45%;
+    }
+
+    .project-description,
+    .cultural-text {
+        padding: 15px;
+        font-size: 0.95rem;
+    }
+}

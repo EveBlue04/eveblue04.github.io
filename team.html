@@ -1,27 +1,110 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ICII 2025 - 团队介绍</title>
-  <link rel="stylesheet" href="css/style.css">
+
   <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/team.css">
 </head>
+
 <body>
   <nav class="navbar">
     <ul>
       <li><a href="index.html">首页</a></li>
       <li><a href="icii.html">ICII全景</a></li>
-      <li><a href="dialog.html">对话领域</a></li>
+      <li><a href="team.html">对话领域</a></li>
       <li><a href="forum.html">论坛</a></li>
       <li><a href="about.html">关于我们</a></li>
     </ul>
   </nav>
-  <main class="team-main">
-    <h1>团队介绍</h1>
-    <div class="team-img">[团队图片占位]</div>
-    <div class="team-desc">团队介绍文字占位</div>
-  </main>
-</body>
-</html>
 
+
+  <!-- 你的原有内容容器 -->
+  <div class="container">
+    <!-- 左侧固定导航 -->
+    <div class="left-nav">
+      <h2 class="nav-title">Dialogue Gallery</h2>
+      <ul class="team-list">
+        <li><a href="#team1" class="active">NAU-CHINA</a></li>
+        <li><a href="#team2">SHANGHAI_Tech</a></li>
+        <li><a href="#team3">PEKING</a></li>
+        <li><a href="#team4">SUSTech</a></li>
+        <li><a href="#team5">SYSU</a></li>
+        <li><a href="#team6">WHU</a></li>
+        <li><a href="#team7">NJU</a></li>
+        <li><a href="#team8">TJU</a></li>
+        <li><a href="#team9">HNU</a></li>
+        <li><a href="#team10">HZAU</a></li>
+
+      </ul>
+    </div>
+
+    <!-- 主内容区 -->
+    <div class="main-content">
+      <!-- Team 1 Section -->
+      <section id="team1" class="team-section">
+        <div class="poster-container">
+          <div class="poster">
+            <img src="" alt="Project Poster">
+          </div>
+        </div>
+
+        <div class="project-description">
+          <p>NAU-CHINA's project "Temperature-Controlled One-step Synthesis of Colored Bacterial Cellulose"
+            addresses environmental concerns in the textile industry through innovative synthetic biology
+            approaches. Our research integrates microbial metabolic engineering with traditional textile
+            principles to create sustainable materials.</p>
+        </div>
+
+        <div class="cultural-connection">
+          <div class="cultural-image">
+            <img src="">
+          </div>
+          <div class="cultural-text">
+            <h3>Cultural Connection</h3>
+            <p>Our project draws profound inspiration from China's ancient silk traditions. The <span
+                class="tech-highlight">"weaving and dyeing in one pot"</span> concept directly
+              references historical Chinese textile techniques where artisans achieved remarkable
+              efficiency through integrated processes.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Team 2 Section -->
+      <section id="team2" class="team-section">
+        <div class="poster-container">
+          <div class="poster">
+            <img src="" alt="Project Poster">
+          </div>
+        </div>
+
+        <div class="project-description">
+          <p>SHANGHAI_Tech's project focuses on developing biosensors for detecting heavy metals in
+            traditional Chinese medicine preparations. Our approach combines synthetic biology with quality
+            control methodologies essential for preserving medicinal efficacy.</p>
+          <p>Using <span class="tech-highlight">engineered bacterial strains</span> that produce visible color
+            changes in the presence of contaminants, we've created a rapid, field-deployable testing system
+            that maintains the integrity of traditional formulations while ensuring safety standards.</p>
+        </div>
+
+        <div class="cultural-connection no-image">
+          <div class="cultural-text">
+            <h3>Cultural Connection</h3>
+            <p>Traditional Chinese Medicine (TCM) has relied on meticulous quality assessment for millennia,
+              with practitioners using sensory evaluation to determine herb potency. Our biosensor
+              technology modernizes this ancient practice of <span class="tech-highlight">"observation and
+                verification"</span> that forms the foundation of TCM diagnostics.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- 原有的 JS 脚本 -->
+  <script src="js/team.js"></script>
+</body>
+
+</html>
