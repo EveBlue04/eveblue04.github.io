@@ -1,45 +1,530 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ICII 2025 - ICII全景</title>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/icii-page.css">
-  <link rel="stylesheet" href="css/nav.css">
-  <script src="
-https://cdn.jsdelivr.net/npm/echarts@6.0.0/dist/echarts.min.js
-"></script>
-</head>
-<body class="icii-body" style="width: 100vw; margin: 0;">
-  <nav class="navbar">
-    <ul>
-      <li><a href="index.html">首页</a></li>
-      <li><a href="icii.html">ICII全景</a></li>
-      <li><a href="team.html">对话领域</a></li>
-      <li><a href="forum.html">论坛</a></li>
-      <li><a href="about.html">关于我们</a></li>
-    </ul>
-  </nav>
-  <div class="icii-container">
-    <div class="textbox">
-      <h1 class="title-icii" data-aos="fade-up" data-aos-duration="1000">
-        ICII Panorama
-      </h1>
-      <p class="text-content" data-aos="fade-up" data-aos-duration="1000">
-        When the "Modern Silk Road of Synthetic Biology" was translated from NAU-CHINA’s vision into reality, the first to gather were a group of like-minded peers who shared the original aspiration of integrating culture and technology. Responding to our sincere invitation, 14 teams transcended geographical boundaries, took scientific research as the threads and cities as the dots, and jointly outlined this ICII "Modern Silk Road Panorama" across eight cities: Hainan, Guangzhou, Hangzhou, Shanghai, Nanjing, Wuhan, Tianjin, Beijing and Lanzhou.<br><br>
-        Every city marker on the map is a vital stop along this modern Silk Road. Each team has come with a passion for exploring synthetic biology and a deep regard for traditional culture —— some may draw inspiration from the cultural heritage of their cities, while others may use technology to find a modern expression for traditional wisdom. Although their specific research directions are still being refined, their shared original aspiration of promoting culture through technology has linked these stops closely together. This is just like the ancient Silk Road, where civilizations from different regions thrived together because of their shared vision for exchange.<br><br>
-        The team stories and scientific research explorations hidden behind these markers will be presented to you through the map’s interactive features:
-      </p>
-    </div>
-    <main class="icii-main">
-      <div id="china-map"></div>
-      <div id="description">
-        <p id="description_txt">nosdjoplsdjviosdhsdg</p>
-      </div>
-    </main>
-  </div>
+  <title>ICII Panorama - Modern Silk Road of Synthetic Biology</title>
   <script src="https://cdn.jsdelivr.net/npm/echarts@6.0.0/dist/echarts.min.js"></script>
-  <script src="js/icii.js"></script>
+  <style>
+    :root {
+      --deep-green: #388478;
+      --cultural-pink: #E2C1B0;
+      --tech-red: #9F4A2D;
+      --eco-brown: #28292B;
+      --future-green: #7FCCB4;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: var(--deep-green);
+      color: white;
+      font-family: 'Cambria', serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Navigation Bar */
+    nav {
+      background-color: rgba(40, 41, 43, 0.85);
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(5px);
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: var(--cultural-pink);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      color: var(--cultural-pink);
+      text-decoration: none;
+      font-size: 1.1rem;
+      position: relative;
+      padding: 5px 0;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--future-green);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--tech-red);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* Header Section */
+    header {
+      padding: 60px 0 30px;
+      text-align: center;
+    }
+
+    h1 {
+      color: var(--cultural-pink);
+      font-size: 2.8rem;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      letter-spacing: 1px;
+    }
+
+    .subtitle {
+      color: var(--future-green);
+      font-size: 1.4rem;
+      max-width: 800px;
+      margin: 0 auto;
+      font-style: italic;
+    }
+
+    /* Content Sections */
+    .content-section {
+      padding: 40px 0;
+      background-color: rgba(40, 41, 43, 0.7);
+      border-radius: 15px;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    .section-title {
+      color: var(--future-green);
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      text-align: center;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(to right, var(--tech-red), var(--future-green));
+      border-radius: 3px;
+    }
+
+    .content-text {
+      max-width: 900px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      padding: 0 20px;
+    }
+
+    .content-text p {
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+
+    /* Map Section */
+    #map-container {
+      position: relative;
+      width: 100%;
+      height: 700px;
+      margin: 40px 0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    }
+
+    #china-map {
+      width: 100%;
+      height: 100%;
+    }
+
+    /* Team Info Sidebar */
+    #team-info {
+      position: absolute;
+      top: 50%;
+      right: 30px;
+      transform: translateY(-50%);
+      width: 320px;
+      background: rgba(40, 41, 43, 0.95);
+      border-radius: 12px;
+      padding: 25px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(226, 193, 176, 0.2);
+      display: none;
+      z-index: 10;
+      transition: all 0.4s ease;
+    }
+
+    #team-info.visible {
+      display: block;
+      animation: slideIn 0.4s ease;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateY(-50%) translateX(50px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(-50%);
+        opacity: 1;
+      }
+    }
+
+    .team-photo {
+      width: 100%;
+      height: 180px;
+      background-color: #2a6a60;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(226, 193, 176, 0.3);
+    }
+
+    .team-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .team-name {
+      color: var(--future-green);
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .team-city {
+      color: var(--cultural-pink);
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      font-style: italic;
+    }
+
+    .team-description {
+      color: #e0e0e0;
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
+
+    /* Footer Note */
+    .footer-note {
+      text-align: center;
+      padding: 20px;
+      color: var(--cultural-pink);
+      font-style: italic;
+      border-top: 1px solid rgba(226, 193, 176, 0.2);
+      margin-top: 20px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      h1 {
+        font-size: 2.3rem;
+      }
+
+      .subtitle {
+        font-size: 1.2rem;
+      }
+
+      #map-container {
+        height: 600px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .content-text {
+        font-size: 1.05rem;
+      }
+
+      #map-container {
+        height: 500px;
+      }
+
+      #team-info {
+        width: 280px;
+        right: 15px;
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.7rem;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+      }
+
+      #map-container {
+        height: 400px;
+      }
+
+      #team-info {
+        width: 250px;
+        padding: 15px;
+      }
+
+      .team-photo {
+        height: 150px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="container nav-container">
+      <a href="#" class="logo">ICII</a>
+      <ul class="nav-links">
+        <li><a href="index.html">首页</a></li>
+        <li><a href="icii.html">ICII全景</a></li>
+        <li><a href="team.html">对话领域</a></li>
+        <li><a href="forum.html">论坛</a></li>
+        <li><a href="about.html">关于我们</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <header>
+      <h1>ICII Panorama</h1>
+      <p class="subtitle">A Modern Silk Road Connecting Culture and Synthetic Biology</p>
+    </header>
+
+    <section class="content-section">
+      <h2 class="section-title">The Modern Silk Road of Synthetic Biology</h2>
+      <div class="content-text">
+        <p>When the "Modern Silk Road of Synthetic Biology" was translated from NAU-CHINA's vision into reality,
+          the first to gather were a group of like-minded peers who shared the original aspiration of
+          integrating culture and technology. Responding to our sincere invitation, 14 teams transcended
+          geographical boundaries, took scientific research as the threads and cities as the dots, and jointly
+          outlined this ICII "Modern Silk Road Panorama" across eight cities: Hainan, Guangzhou, Hangzhou,
+          Shanghai, Nanjing, Wuhan, Tianjin, Beijing and Lanzhou.</p>
+
+        <p>Every city marker on the map is a vital stop along this modern Silk Road. Each team has come with a
+          passion for exploring synthetic biology and a deep regard for traditional culture —— some may draw
+          inspiration from the cultural heritage of their cities, while others may use technology to find a
+          modern expression for traditional wisdom. Although their specific research directions are still
+          being refined, their shared original aspiration of promoting culture through technology has linked
+          these stops closely together. This is just like the ancient Silk Road, where civilizations from
+          different regions thrived together because of their shared vision for exchange.</p>
+      </div>
+    </section>
+
+    <div id="map-container">
+      <div id="china-map"></div>
+      <div id="team-info">
+        <div class="team-photo">
+          <img src="https://placehold.co/300x180/388478/E2C1B0?text=Team+Photo" alt="Team Photo">
+        </div>
+        <h3 class="team-name">Team Beijing</h3>
+        <p class="team-city">Beijing, China</p>
+        <div class="team-description">
+          Integrating ancient Chinese textile wisdom with modern biosynthesis techniques. Our project explores
+          temperature-controlled bacterial cellulose production inspired by traditional silk dyeing methods.
+        </div>
+      </div>
+    </div>
+
+    <section class="content-section">
+      <h2 class="section-title">The Spirit of the Silk Road Continues</h2>
+      <div class="content-text">
+        <p>The team stories and scientific research explorations hidden behind these markers will be presented
+          to you through the map's interactive features: hover your mouse over a marker to view the team name,
+          and click on the icon to jump to an exclusive page, where you can gain an in-depth understanding of
+          the team's style and their "dialogue spanning millennia".</p>
+
+        <p>From the germination of one team's original aspiration to the joint journey of 12 teams, from the
+          geographical connection of six cities to the spiritual resonance between technology and culture,
+          this panorama is far more than a display of team information. It is a continuation of the Silk Road
+          spirit —— defined by openness, inclusiveness, exchange, and mutual learning —— in the field of
+          contemporary scientific research. Every marker is a starting point for cultural transmission, and
+          every team is a fellow traveler on the modern Silk Road. Together, they show the world the
+          determination and strength of China's young researchers to "tell cultural stories well through
+          science and technology".</p>
+      </div>
+      <div class="footer-note">
+        * Map markers are interactive - hover to explore team information
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Team data with coordinates (longitude, latitude)
+    const teams = [
+      {
+        name: "Team Beijing",
+        city: "Beijing",
+        coords: [116.46, 39.92],
+        photo: "#",
+        description: "Integrating ancient Chinese textile wisdom with modern biosynthesis techniques. Our project explores temperature-controlled bacterial cellulose production inspired by traditional silk dyeing methods."
+      }
+    ];
+
+    // ICII全景中国地图ECharts实现（ECharts 6.x，需手动加载geoJSON）
+    window.onload = function () {
+      var chartDom = document.getElementById('china-map');
+      var teamInfoElement = document.getElementById('team-info');
+
+      if (!chartDom) {
+        console.error('未找到地图容器元素，可能是加载出问题了，尝试刷新页面看看？');
+        return;
+      }
+
+      var myChart = echarts.init(chartDom);
+      fetch('china.json')
+        .then(res => res.json())
+        .then(geoJson => {
+          echarts.registerMap('china', geoJson);
+          var option = {
+            tooltip: {
+              trigger: 'item',
+              formatter: function (params) {
+                return params.name;
+              }
+            },
+            series: [
+              {
+                name: '中国',
+                type: 'map',
+                map: 'china',
+                roam: true,
+                layoutCenter: ['50%', '50%'], // 保证地图内容居中
+                layoutSize: '90%', // 保证地图内容有留白，不贴边
+                itemStyle: {
+                  areaColor: '#3399ff', // 蓝色
+                  borderColor: '#fff',
+                  borderWidth: 1
+                },
+                emphasis: {
+                  itemStyle: {
+                    areaColor: '#005fae', // hover时深蓝色
+                    shadowBlur: 10,
+                    shadowColor: 'rgba(0,0,0,0.3)'
+                  },
+                  label: {
+                    color: '#ff0', // hover时字体高亮
+                    fontWeight: 'bold'
+                  }
+                },
+                label: {
+                  show: true,
+                  color: '#fff',
+                  fontSize: 12
+                },
+                data: []
+              },
+              {
+                name: 'Teams',
+                type: 'scatter',
+                coordinateSystem: 'geo',
+                data: teams.map(team => ({
+                  name: team.name,
+                  value: [...team.coords, 15]
+                })),
+                symbolSize: 15,
+                itemStyle: {
+                  color: '#9F4A2D'
+                },
+                emphasis: {
+                  itemStyle: {
+                    color: '#ff0000',
+                    borderColor: '#fff',
+                    borderWidth: 2
+                  }
+                }
+              }
+            ]
+          };
+          myChart.setOption(option);
+
+          // Handle mouse events for team markers
+          myChart.on('mouseover', function (params) {
+            if (params.seriesType === 'scatter') {
+              const team = teams.find(t => t.name === params.name);
+              if (team) {
+                document.querySelector('.team-photo img').src = team.photo;
+                document.querySelector('.team-name').textContent = team.name;
+                document.querySelector('.team-city').textContent = team.city;
+                document.querySelector('.team-description').textContent = team.description;
+
+                teamInfoElement.style.display = 'block';
+                setTimeout(() => {
+                  teamInfoElement.classList.add('visible');
+                }, 10);
+              }
+            }
+          });
+
+          myChart.on('mouseout', function (params) {
+            if (params.seriesType === 'scatter') {
+              teamInfoElement.classList.remove('visible');
+              setTimeout(() => {
+                if (!teamInfoElement.classList.contains('visible')) {
+                  teamInfoElement.style.display = 'none';
+                }
+              }, 400);
+            }
+          });
+
+          window.addEventListener('resize', function () {
+            myChart.resize();
+          });
+        })
+        .catch(err => {
+          console.error('中国地图geoJSON加载失败:', err);
+          chartDom.innerHTML = '<div style="color: #e2c1b0; text-align: center; padding: 20px; font-size: 1.2rem;">Map loading error. Please check your internet connection and refresh the page.</div>';
+        });
+    };
+  </script>
 </body>
+
 </html>
