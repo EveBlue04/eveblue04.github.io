@@ -295,3 +295,19 @@ body {
         font-size: 0.95rem;
     }
 }
+
+/* 仅针对 team.html 页面，修复 navbar 下坠 */
+body {
+    padding-top: 10px !important;
+}
+
+.navbar {
+    margin: 0 !important;
+    /* 覆盖原有的 margin: 2rem */
+    top: 10;
+    /* 确保顶部对齐 */
+    left: 0;
+    right: 0;
+    width: auto;
+    /* 让宽度自动适应 */
+}
