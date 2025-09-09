@@ -420,8 +420,13 @@
       }
 
       var myChart = echarts.init(chartDom);
-      fetch('china.json')
-        .then(res => res.json())
+      fetch('js/vendor/china.json')
+        .then(res => {
+          if (!res.ok) {
+            throw new Error(`HTTP error! status: ${res.status}`);
+          }
+          return res.json();
+        })
         .then(geoJson => {
           echarts.registerMap('china', geoJson);
           var option = {

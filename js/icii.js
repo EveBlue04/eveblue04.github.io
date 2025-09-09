@@ -6,8 +6,13 @@ window.onload = function() {
     return;
   }
   var myChart = echarts.init(chartDom);
-  fetch('js/vendor/china.json')
-    .then(res => res.json())
+  fetch('./js/vendor/china.json')
+    .then(res => {
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+      return res.json();
+    })
     .then(geoJson => {
       echarts.registerMap('china', geoJson);
       var option = {
@@ -28,21 +33,23 @@ window.onload = function() {
             itemStyle: {
               areaColor: '#3399ff', // 蓝色
               borderColor: '#fff',
-              borderWidth: 1,
-              emphasis: {
+              borderWidth: 1
+            },
+            emphasis: {
+              itemStyle: {
                 areaColor: '#005fae', // hover时深蓝色
                 shadowBlur: 10,
                 shadowColor: 'rgba(0,0,0,0.3)'
+              },
+              label: {
+                color: '#ff0', // hover时字体高亮
+                fontWeight: 'bold'
               }
             },
             label: {
               show: true,
               color: '#fff',
-              fontSize: 12,
-              emphasis: {
-                color: '#ff0', // hover时字体高亮
-                fontWeight: 'bold'
-              }
+              fontSize: 12
             },
             data: []
           }
