@@ -1,9 +1,11 @@
+
 :root {
-    --main-bg: #388478;
-    --cultural-color: #E2C1B0;
-    --tech-color: #9F4A2D;
-    --eco-color: #28292B;
-    --future-color: #7FCCB4;
+    /* 替换为黄白系列主色 */
+    --main-bg: #f8f5e6;          /* 浅米黄背景，原深绿背景替代 */
+    --cultural-color: #e0c97f;   /* 淡黄色，用于标题、链接 */
+    --tech-color: #b38a3a;       /* 棕黄色，用于强调文本、高亮 */
+    --eco-color: #2d3e504a;        /* 深蓝灰，用于深色区域替代（如左侧导航） */
+    --future-color: #fffbe6;     /* 淡黄高亮色，用于激活项左侧条 */
 }
 
 * {
@@ -13,8 +15,8 @@
 }
 
 body {
-    background-color: var(--main-bg);
-    color: white;
+    background-color: var(--main-bg); /* 浅米黄背景 */
+    color: #333;                     /* 深灰色文字，原始风格 */
     font-family: 'Cambria', serif;
     line-height: 1.6;
     overflow-x: hidden;
@@ -25,24 +27,18 @@ body {
     display: flex;
     min-height: 100vh;
     margin-top: 5.5rem;
-    /* ≈ 88px，留出 navbar 及其上下 margin 的空间 */
 }
 
 /* Left Navigation */
-
-
 .left-nav {
     top: 5.5rem;
-    /* 与 .container 的 margin-top 一致 */
     height: calc(100vh - 5.5rem);
-    /* 剩余视口高度 */
     width: 25%;
     position: fixed;
-    background-color: #2d7062;
+    background-color: #978223b7; /* 深蓝灰，替代原深绿 */
     padding: 40px 20px;
-    position: fixed;
     overflow-y: auto;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    border-right: 1px solid rgba(224, 201, 127, 0.3); /* 棕黄细边框 */
 }
 
 .nav-title {
@@ -50,7 +46,7 @@ body {
     font-size: 1.8rem;
     margin-bottom: 40px;
     padding-bottom: 15px;
-    border-bottom: 1px solid rgba(226, 193, 176, 0.3);
+    border-bottom: 1px solid var(--cultural-color);
 }
 
 .team-list {
@@ -70,7 +66,7 @@ body {
 }
 
 .team-list a:hover {
-    background-color: rgba(159, 74, 45, 0.2);
+    background-color: rgba(179, 138, 58, 0.15);
 }
 
 .team-list a.active {
@@ -86,13 +82,13 @@ body {
     top: 0;
     height: 100%;
     width: 4px;
-    background-color: var(--future-color);
+    background-color: var(--future-color); /* 淡黄条 */
 }
 
 /* Main Content */
 .main-content {
     width: 65%;
-    margin-left: 20%;
+    margin-left: 25%; /* 与 left-nav 宽度对齐 */
     padding: 60px 100px 80px;
 }
 
@@ -102,15 +98,14 @@ body {
     display: grid;
     grid-template-rows: 0.8fr min-content 1fr;
     gap: 30px;
-    gap: 30px;
 }
 
 /* Poster Section */
 .poster-container {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.6);
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -120,11 +115,11 @@ body {
 .poster {
     width: 100%;
     height: 90%;
-    background: linear-gradient(135deg, #2a6a5f 0%, #1e4d43 100%);
+    background: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(226, 193, 176, 0.2);
+    border: 1px solid #e0c97f;
 }
 
 .poster img {
@@ -135,11 +130,12 @@ body {
 
 /* Project Description */
 .project-description {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 12px;
     padding: 25px;
     line-height: 1.8;
     font-size: 1.1rem;
+    color: #555;
 }
 
 .project-description p {
@@ -157,7 +153,7 @@ body {
 }
 
 .cultural-image {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.7);
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -167,8 +163,7 @@ body {
 .cultural-image::before {
     content: '';
     display: block;
-    padding-top: 75%;
-    /* 4:3 aspect ratio */
+    padding-top: 75%; /* 4:3 */
 }
 
 .cultural-image img {
@@ -181,17 +176,18 @@ body {
 }
 
 .cultural-text {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 12px;
     padding: 25px;
     overflow-y: auto;
+    color: #555;
 }
 
 .cultural-text h3 {
     color: var(--cultural-color);
     font-size: 1.5rem;
     margin-bottom: 20px;
-    border-bottom: 1px solid rgba(226, 193, 176, 0.3);
+    border-bottom: 1px solid var(--cultural-color);
     padding-bottom: 10px;
 }
 
@@ -208,13 +204,11 @@ body {
 /* 当没有文化图片时，文字占满整行 */
 .cultural-connection.no-image {
     grid-template-columns: 1fr;
-    grid-template-rows: auto;
 }
 
 .cultural-connection.no-image .cultural-text {
     grid-column: 1;
     width: 100%;
-    max-width: none;
 }
 
 /* Responsive Design */
@@ -223,7 +217,6 @@ body {
         width: 70%;
         margin-left: 25%;
     }
-
     .cultural-connection {
         grid-template-columns: 100%;
         grid-template-rows: 40% 60%;
@@ -234,13 +227,11 @@ body {
     .left-nav {
         width: 25%;
     }
-
     .main-content {
         width: 70%;
         margin-left: 25%;
         padding: 40px 25px;
     }
-
     .team-section {
         grid-template-rows: 35% 20% 45%;
     }
@@ -250,7 +241,6 @@ body {
     .container {
         flex-direction: column;
     }
-
     .left-nav {
         width: 100%;
         height: auto;
@@ -258,17 +248,14 @@ body {
         padding: 20px;
         max-height: 300px;
     }
-
     .main-content {
         width: 100%;
         margin-left: 0;
         padding: 30px 20px;
     }
-
     .team-section {
         grid-template-rows: 30% 25% 45%;
     }
-
     .cultural-connection {
         grid-template-columns: 100%;
         grid-template-rows: 40% 60%;
@@ -279,16 +266,13 @@ body {
     .nav-title {
         font-size: 1.4rem;
     }
-
     .team-list a {
         font-size: 1rem;
         padding: 10px;
     }
-
     .team-section {
         grid-template-rows: 25% 30% 45%;
     }
-
     .project-description,
     .cultural-text {
         padding: 15px;
@@ -296,18 +280,15 @@ body {
     }
 }
 
-/* 仅针对 team.html 页面，修复 navbar 下坠 */
+/* 修复 navbar 下坠 */
 body {
     padding-top: 10px !important;
 }
 
 .navbar {
     margin: 0 !important;
-    /* 覆盖原有的 margin: 2rem */
-    top: 10;
-    /* 确保顶部对齐 */
+    top: 0;
     left: 0;
     right: 0;
     width: auto;
-    /* 让宽度自动适应 */
 }
