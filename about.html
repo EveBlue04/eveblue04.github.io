@@ -24,53 +24,12 @@
 
   <div class="container">
     <div class="page-title">
-      <div class="typed-element-title">
-        <h1 class="typing"></h1>
-        <span class="typed-cursor">|</span>
+      <div class="element-title">
+        <img src="./img/mainpage_img/biaoti.png" alt="">
       </div>
     </div>
   </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const typingElement = document.querySelector('.typing');
-      const cursorElement = document.querySelector('.typed-cursor');
-      const text = "Behind ICII: NAU-CHINA's Story"; // 要打出的文字
-      let index = 0;
-      let isDeleting = false;
-      let isEnd = false;
-      let typingSpeed = 150; // 打字速度（毫秒）
-
-      function type() {
-        const currentText = text.substring(0, index);
-        typingElement.textContent = currentText;
-
-        if (!isDeleting && index < text.length) {
-          // 打字
-          index++;
-          setTimeout(type, typingSpeed);
-        } else if (isDeleting && index >= 0) {
-          // 删除
-          index--;
-          setTimeout(type, typingSpeed / 4);
-        } else {
-          // 切换
-          isDeleting = !isDeleting;
-          if (!isDeleting) {
-            isEnd = true;
-            // 完成一轮后稍作停顿再开始删除
-            setTimeout(type, 1000);
-          } else {
-            // 开始删除前短暂停顿
-            setTimeout(type, 800);
-          }
-        }
-      }
-
-      // 启动打字效果
-      setTimeout(type, 500);
-    });
-  </script>
   <div class="mainP">
     <P>
       When we first beheld the warm, smooth texture of the bacterial cellulose membrane, and when the dyeing experiment
