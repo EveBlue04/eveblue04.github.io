@@ -8,13 +8,20 @@
   <script src="https://cdn.jsdelivr.net/npm/echarts@6.0.0/dist/echarts.min.js"></script>
   <link rel="stylesheet" href="css/nav.css">
   <link rel="stylesheet" href="css/icii.css">
+  <link rel="stylesheet" href="css/style.css">
   <style>
     :root {
-      --deep-green: #388478;
-      --cultural-pink: #E2C1B0;
-      --tech-red: #9F4A2D;
-      --eco-brown: #28292B;
-      --future-green: #7FCCB4;
+      /* 替换为原始系列的主色调：黄白风格 */
+      --deep-green: #2d3e50;
+      /* 用作深色替代，如原深绿的用途（如标题背景、边框） */
+      --cultural-pink: #e0c97f;
+      /* 替换为原始黄色系，用于链接、强调文字 */
+      --tech-red: #b38a3a;
+      /* 替换为深一点的棕黄，用于下划线、强调 */
+      --eco-brown: #f8f5e6;
+      /* 浅米黄，用作内容背景替代深色 */
+      --future-green: #fffbe6;
+      /* 替换为原始淡黄背景色，用于高亮、标题下划线等 */
     }
 
     * {
@@ -24,8 +31,10 @@
     }
 
     body {
-      background-color: var(--deep-green);
-      color: white;
+      background-color: var(--eco-brown);
+      /* 浅米黄背景，匹配原始风格 */
+      color: #333;
+      /* 深灰色文字，原始风格 */
       font-family: 'Cambria', serif;
       line-height: 1.6;
       overflow-x: hidden;
@@ -35,63 +44,6 @@
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
-    }
-
-    /* Navigation Bar */
-    nav {
-      background-color: rgba(40, 41, 43, 0.85);
-      padding: 15px 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      backdrop-filter: blur(5px);
-    }
-
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 1.4rem;
-      font-weight: bold;
-      color: var(--cultural-pink);
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 30px;
-    }
-
-    .nav-links a {
-      color: var(--cultural-pink);
-      text-decoration: none;
-      font-size: 1.1rem;
-      position: relative;
-      padding: 5px 0;
-      transition: all 0.3s ease;
-    }
-
-    .nav-links a:hover {
-      color: var(--future-green);
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background-color: var(--tech-red);
-      transition: width 0.3s ease;
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
     }
 
     /* Header Section */
@@ -104,12 +56,12 @@
       color: var(--cultural-pink);
       font-size: 2.8rem;
       margin-bottom: 20px;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
       letter-spacing: 1px;
     }
 
     .subtitle {
-      color: var(--future-green);
+      color: #555;
       font-size: 1.4rem;
       max-width: 800px;
       margin: 0 auto;
@@ -119,14 +71,15 @@
     /* Content Sections */
     .content-section {
       padding: 40px 0;
-      background-color: rgba(40, 41, 43, 0.7);
+      background-color: rgba(255, 255, 255, 0.85);
+      /* 白色半透明背景 */
       border-radius: 15px;
       margin-bottom: 40px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     }
 
     .section-title {
-      color: var(--future-green);
+      color: var(--cultural-pink);
       font-size: 1.8rem;
       margin-bottom: 25px;
       text-align: center;
@@ -151,6 +104,7 @@
       font-size: 1.1rem;
       line-height: 1.8;
       padding: 0 20px;
+      color: #555;
     }
 
     .content-text p {
@@ -166,7 +120,7 @@
       margin: 40px 0;
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
     }
 
     #china-map {
@@ -181,12 +135,12 @@
       right: 30px;
       transform: translateY(-50%);
       width: 320px;
-      background: rgba(40, 41, 43, 0.95);
+      background: rgba(255, 255, 255, 0.95);
       border-radius: 12px;
       padding: 25px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
       backdrop-filter: blur(10px);
-      border: 1px solid rgba(226, 193, 176, 0.2);
+      border: 1px solid var(--cultural-pink);
       display: none;
       z-index: 10;
       transition: all 0.4s ease;
@@ -212,14 +166,14 @@
     .team-photo {
       width: 100%;
       height: 180px;
-      background-color: #2a6a60;
+      background-color: #f0f0f0;
       border-radius: 8px;
       margin-bottom: 20px;
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 1px solid rgba(226, 193, 176, 0.3);
+      border: 1px solid var(--cultural-pink);
     }
 
     .team-photo img {
@@ -229,20 +183,20 @@
     }
 
     .team-name {
-      color: var(--future-green);
+      color: var(--cultural-pink);
       font-size: 1.5rem;
       margin-bottom: 10px;
     }
 
     .team-city {
-      color: var(--cultural-pink);
+      color: #b38a3a;
       font-size: 1.1rem;
       margin-bottom: 15px;
       font-style: italic;
     }
 
     .team-description {
-      color: #e0e0e0;
+      color: #555;
       line-height: 1.7;
       font-size: 1.05rem;
     }
@@ -251,9 +205,9 @@
     .footer-note {
       text-align: center;
       padding: 20px;
-      color: var(--cultural-pink);
+      color: #888;
       font-style: italic;
-      border-top: 1px solid rgba(226, 193, 176, 0.2);
+      border-top: 1px solid var(--cultural-pink);
       margin-top: 20px;
     }
 
@@ -318,23 +272,26 @@
         height: 150px;
       }
     }
+
+    .kong {
+      height: 100px;
+    }
   </style>
 </head>
 
 <body>
-  <nav>
-    <div class="container nav-container">
-      <a href="#" class="logo">ICII</a>
-      <ul class="nav-links">
-        <li><a href="index.html">首页</a></li>
-        <li><a href="icii.html">ICII全景</a></li>
-        <li><a href="team.html">对话领域</a></li>
-        <li><a href="forum.html">论坛</a></li>
-        <li><a href="about.html">关于我们</a></li>
-      </ul>
-    </div>
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html">首页</a></li>
+      <li><a href="icii.html">ICII全景</a></li>
+      <li><a href="team.html">对话领域</a></li>
+      <li><a href="forum.html">论坛</a></li>
+      <li><a href="about.html">关于我们</a></li>
+    </ul>
   </nav>
+  <div class="kong">
 
+  </div>
   <div class="container">
     <header>
       <h1>ICII Panorama</h1>
