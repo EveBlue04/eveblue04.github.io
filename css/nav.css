@@ -14,9 +14,9 @@
   display: flex;
 }
 .navbar li {
-  margin-right: 30px;
+
   padding: 14px 0;
-  width: 100px;
+  width: 200px;
   transition: all 0.3s ease;
   text-align: center;
   border-radius: 1rem;
@@ -24,7 +24,8 @@
 .navbar a {
   color: #fff;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 20px;
+  font-family: 'Cambria', serif;
   line-height: 100%;
   padding: 14px 0;
   margin: 0;
