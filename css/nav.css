@@ -14,13 +14,41 @@
   display: flex;
 }
 .navbar li {
-
   padding: 14px 0;
   width: 200px;
   transition: all 0.3s ease;
   text-align: center;
   border-radius: 1rem;
+  position: relative;
+  overflow: hidden;
 }
+
+.navbar li::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: var(--navbar-gradient);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 1rem;
+}
+
+.navbar li:hover::before {
+  opacity: 1;
+}
+
+.navbar li:hover {
+  /* 不再直接设置 background */
+  scale: 1.1;
+  border-radius: 1rem;
+}
+
+.navbar li > a {
+  position: relative;
+  z-index: 1;
+}
+
 .navbar a {
   color: #fff;
   text-decoration: none;
@@ -29,11 +57,6 @@
   line-height: 100%;
   padding: 14px 0;
   margin: 0;
-}
-.navbar li:hover {
-  background: var(--navbar-gradient);
-  scale: 1.1;
-  border-radius: 1rem;
 }
 :root {
   --navbar-gradient: linear-gradient(

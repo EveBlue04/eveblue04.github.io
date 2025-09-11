@@ -26,5 +26,10 @@ askBtn.onclick = function() {
     renderForum();
   }
 };
+if(askBtn) {
+  askBtn.onclick = function() {
+    const content = questionInput.value.trim();
+    window.location.href = 'mailto:your@email.com?subject=ICII论坛提问&body=' + encodeURIComponent(content);
+  };
+}
 renderForum();
-

@@ -114,12 +114,20 @@ body {
   font-size: 16px;
 }
 .forum-main {
-  max-width: 700px;
-  margin: 40px auto;
-  background: #fff;
+  width: 80%;
+  align-items: center;
+  top: 10rem;
+  left:10%;
+  right: 10%;
+  position: absolute;
+  background: rgba(255,255,255,0.82);
   border-radius: 10px;
   padding: 30px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: all 0.4s ease-in-out;
+}
+.forum-main:hover {
+  transform: scale(1.02);
 }
 .forum-ask {
   display: flex;
@@ -141,6 +149,12 @@ body {
   background: #2d3e50;
   color: #fff;
   cursor: pointer;
+}
+.hint{
+  color: #888;
+  font-size: 14px;
+  margin-bottom: 10px;
+  text-align: right;
 }
 .forum-list {
   margin-top: 10px;
