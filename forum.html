@@ -17,7 +17,10 @@
       <li><a href="about.html">NAU-CHINA's Journey</a></li>
     </ul>
   </nav>
-  <main class="forum-main">
+  <div id="danmu-container" style="position:fixed;left:0;top:0;width:100vw;height:100vh;pointer-events:none;z-index:1000;"></div>
+  <button id="show-forum-btn" style="position:fixed;top:160px;right:40px;z-index:1100;display:block;">></button>
+  <main class="forum-main" style="display:none;position:relative;">
+    <button id="back-btn" style="position:absolute;left:16px;top:16px;z-index:1200;"><</button>
     <h1>论坛</h1>
 
     <h2>常见问题</h2>
@@ -25,8 +28,8 @@
 
     </div>
     <div class="forum-ask">
-      <input type="text" placeholder="请输入您的问题..." id="forum-question">
-      <button id="ask-btn">提问</button>
+      <button id="ask-btn-0"> 问卷提问</button>
+      <button id="ask-btn"> 邮箱提问</button>
       </div>
     <p class="hint">点击评论以拉起邮箱客户端向我们提问！</p>
 
