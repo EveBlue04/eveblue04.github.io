@@ -1,0 +1,13 @@
+{
+  "北京": ["iGEM_Beijing_2025", "iGEM_Tsinghua_2025"],
+  "江苏": ["iGEM_Nanjing_2025", "iGEM_NAU_2025","测试测试测试测试测试测试测试测试测试"],
+  "上海": ["iGEM_Fudan_2025"],
+  "广东": ["iGEM_Guangzhou_2025"],
+  "浙江": ["iGEM_Zhejiang_2025"],
+  "四川": ["iGEM_Sichuan_2025"],
+  "山东": ["iGEM_Shandong_2025"],
+  "湖北": ["iGEM_Hubei_2025"],
+  "重庆": ["iGEM_Chongqing_2025"],
+  "天津": ["iGEM_Tianjin_2025"]
+}
+
