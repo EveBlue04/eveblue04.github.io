@@ -1,11 +1,11 @@
 [
   {
     "name": "北京市",
-    "description": "暂无相关信息"
+    "description": "We are Team \"BUCT-China\" from the International Education College of Beijing University of Chemical Technology. Since our establishment in 2018, we have achieved outstanding results, including 3 gold medals, 2 silver medals, 3 bronze medals, and 3 special awards. In last year's iGEM competition, we won a Gold Medal and received a Nomination for the Best Undergraduate Project. \n This year, our team consists of 27 students from the International Education College, the College of Life Science and Technology, the College of Mathematics and Physics, the Hongde Honors College, and the College of Information Science and Technology. We are focusing on the innovative project of \" using enzymatic catalysis to convert PET waste and food waste into supramolecular fluorescent materials\". We look forward to achieving even greater success in this year's competition!"
   },
   {
     "name": "天津市",
-    "description": "暂无相关信息"
+    "description": "Cold weather often hinders our pursuit of beauty and fashion – whether it's car door handles frozen shut or skincare products freezing solid outdoors. Tianjin team 'KUNPENG-The Guardian of Beauty in Cold Conditions' drew inspiration from the freeze-resistance wisdom of polar organisms. Combining synthetic biology and machine learning, they designed an 'Antifreeze Protein-Trehalose Synergistic Defense System.' The team screened 11 highly active antifreeze proteins (AFPs) and integrated their coding genes with a trehalose synthesis module. This created 'antifreeze chassis cells' within a yeast surface display system. Machine learning was used to optimize the antifreeze performance of the proteins and design novel antifreeze proteins. The ultimate vision is to integrate this system into cosmetic applications like creams within the fashion and beauty industry in the future."
   },
   {
     "name": "河北省",
@@ -33,15 +33,15 @@
   },
   {
     "name": "上海市",
-    "description": "暂无相关信息"
+    "description": "We are the igem team from Tongji University. Our team members come from multiple colleges, including the School of Life Sciences and Technology and the College of Design and Innovation. We hope to express our team's inclusivity and concern for humanistic spirit through such an interesting project."
   },
   {
     "name": "江苏省",
-    "description": "暂无相关信息"
+    "description": "The DKU iGEM team for 2025 is composed of undergraduate students from diverse cultural and academic backgrounds, spanning molecular biology, neuroscience, data science, and applied mathematics, with members hailing from Pakistan, Romania, the United States, Morocco, and China. United by this diversity, we combine technical expertise with creative perspectives to tackle complex biomedical challenges. Our project, DopaMine, focuses on engineering Saccharomyces cerevisiae to produce and self-regulate L-DOPA, offering a novel synthetic biology approach to Parkinson’s disease treatment. Together, we strive to integrate scientific rigor with cultural openness, creating a team identity defined by collaboration, innovation, and a shared commitment to improving human health.\nNAU-CHINA is a passionate iGEM team affiliated with Nanjing Agricultural University, dedicated to unlocking innovative possibilities in the field of synthetic biology. Our research centers on a core project: the \"Temperature-Controlled One-Step Synthesis of Colored Bacterial Cellulose.\" \n Driven by a commitment to sustainability, we aim to develop this technology into an eco-friendly alternative for the traditional textile industry—addressing the industry’s pollution challenges while exploring new applications for bio-based materials. Beyond lab work, we value knowledge sharing and collaborative learning, striving to contribute meaningful progress to the global synthetic biology community through rigorous research and creative problem-solving.\nHello everyone! We are iGEMers from Nanjing Normal University. This year, we will conduct the research and development of a pharmacogenomics testing product. Based on a fluorescent signal detection system, this product will confirm pregnant women's folic acid metabolism capacity through probes, providing them with rapid and accurate detection of folic acid metabolism capacity to support the national policy of better births and better upbringing of children. Welcome everyone to learn about and follow our project!"
   },
   {
     "name": "浙江省",
-    "description": "暂无相关信息"
+    "description": "As Team ZJUT-China from Zhejiang University of Technology's School of Biological Engineering, we focus on urgent global issues, applying our specialized knowledge to pioneer solutions and dedicate our youthful ingenuity. Beyond pursuing excellence, we are a community of passionate minds with warmth and humor! Delighted to connect with you!"
   },
   {
     "name": "安徽省",
@@ -73,7 +73,7 @@
   },
   {
     "name": "广东省",
-    "description": "暂无相关信息"
+    "description": "We are a student team from HKUST(GZ) with backgrounds mainly in AI and data science, but with a deep passion for synthetic biology. Under the guidance of Dr. Julie Qiaojin Lin and Dr. Junyu Xu, we embarked on our iGEM journey. By combining our computational strengths with their biological expertise, we aim to bring fresh interdisciplinary perspectives to synthetic biology. Our project, Lychee Guardians, reflects this spirit by integrating AI and biology to develop innovative solutions for lychee preservation.\n As one of the few iGEM teams ever to adopt a plant chassis, our multidisciplinary team consists of undergraduates specializing in emerging agriculture, biological sciences, biotechnology, horticulture, big data analytics, and artificial intelligence. We are dedicated to addressing global folate deficiency, with a particular focus on micronutrient shortages in underdeveloped regions such as Africa and Latin America. Our mission is to leverage synthetic biology to engineer folate-enriched soybeans, making folate nutrition accessible to all."
   },
   {
     "name": "广西壮族自治区",
@@ -81,7 +81,7 @@
   },
   {
     "name": "海南省",
-    "description": "暂无相关信息1"
+    "description": "The HainanU-China 2025 team consists of 28 undergraduate students from different majors, spanning 10 colleges, with professional backgrounds covering 12 fields such as biological sciences, biotechnology, biomedical engineering, English, computers, and visual communication. Whether it is the rigor of experimental design, the accuracy of data analysis, the temperature of humanistic practice, and the creativity of the presentation of results, it can achieve more comprehensive breakthroughs through the integration of different professional perspectives. \nAt present, the team is divided into four groups: wet lab, dry lab, Human Practice group and art group, each group not only performs its own duties but also works closely together: the wet lab focuses on experimental operation and verification, the dry lab is responsible for data modeling and analysis, the HP group links social needs and project value, and the art group visualizes the results to make the results more disseminated. Diverse professional forces and clear division of labor and cooperation allow the team to have both depth and breadth in exploration."
   },
   {
     "name": "重庆市",
@@ -109,7 +109,7 @@
   },
   {
     "name": "甘肃省",
-    "description": "暂无相关信息"
+    "description": "The LZU-GANS team, hailing from the School of Stomatology at Lanzhou University, is a young research group dedicated to investigating oral microbiota and quorum sensing mechanisms. Leveraging the School's profound academic heritage and clinical resources, we focus on the ‘chemical communication’ systems of oral microorganisms, exploring their pivotal role in the development of dental caries and periodontal disease. We are developing novel prevention and treatment strategies based on quorum sensing regulation.\nUpholding the ethos of ‘rigorous scholarship and collaborative innovation,’ the team integrates epidemiological insights into prevalent oral diseases in Northwest China. We strive to translate fundamental research into clinical applications, providing scientific support for enhancing oral health standards. Guided by our mission of ‘microscopic insights, health guardianship,’ we are determined to achieve continuous breakthroughs in dental research, showcasing the professional excellence and sense of responsibility characteristic of Lanzhou University's dental community.\nWe are an interdisciplinary undergraduate team from Gansu Province focused on synthetic biology solutions for clinical challenges. Our project aims to treat perioperative gut dysbiosis using engineered probiotics.\nOur work combines genetic circuit design with therapeutic development, highlighting the potential of synthetic biology in medical applications. The members of our team cooperated with each other, and the students in the experimental group worked hard to modify probiotics by transferring recombinant plasmids and other means; The students in the data group devoted themselves to research, and through the establishment of mathematical models, the optimal proportion range of different gene expressions was obtained. Art design students work tirelessly to design exquisite scientific research illustrations and web posters. Our team members do their part to lead the team to evolve.\nI believe that with the mutual cooperation of our team, we will be able to overcome obstacles on the road of synthetic biology, cross mountains one after another, and reach the ideal distance."
   },
   {
     "name": "青海省",
@@ -121,7 +121,7 @@
   },
   {
     "name": "新疆维吾尔自治区",
-    "description": "暂无相关信息"
+    "description": "XJU-CHINA is a multidisciplinary team of undergraduate students from Xinjiang University, united by a passion for merging regional microbial diversity with synthetic biology innovation. With backgrounds in biotechnology, microbiology, and bioinformatics, we combine fieldwork in Xinjiang’s unique ecosystems—from the Gobi Desert to alpine grasslands—with advanced lab techniques in plasmid screening, genome editing, and stress-testing of engineered strains. Guided by Professor Haitao Yue , our team is committed to translating Xinjiang’s natural genetic wealth into sustainable industrial solutions, embodying the spirit of collaboration that once defined the ancient Silk Road."
   },
   {
     "name": "香港特别行政区",

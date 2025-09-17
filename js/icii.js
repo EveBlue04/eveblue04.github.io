@@ -1,4 +1,3 @@
-
 // Team data with coordinates (longitude, latitude)
 const teams = [
   {
@@ -12,21 +11,91 @@ const teams = [
 
 // 弹窗DOM插入body末尾
 window.addEventListener('DOMContentLoaded', function () {
+  // 创建遮罩层
+  const overlay = document.createElement('div');
+  overlay.id = 'popup-overlay';
+  overlay.style.cssText = `
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.5);
+    z-index:9998;
+  `;
+
+  // 创建弹窗
   const popup = document.createElement('div');
   popup.id = 'province-popup';
   popup.style.cssText = `
-        display:none;position:fixed;left:50%;top:30%;transform:translate(-50%,-50%);
-        background:#fffbe6;border:2px solid #b38a3a;padding:30px 40px;z-index:9999;
-        border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.18);font-size:1.2rem;
+        display:none;
+        position:fixed;
+        left:50%;
+        top:50%;
+        transform:translate(-50%,-50%);
+        width:500px;
+        height:400px;
+        background:#fffbe6;
+        border:2px solid #b38a3a;
+        border-radius:12px;
+        box-shadow:0 8px 32px rgba(0,0,0,0.18);
+        font-size:1.2rem;
+        z-index:9999;
+        overflow:hidden;
       `;
   popup.innerHTML = `
-        <div id="popup-content"></div>
-        <button id="popup-close" style="margin-top:20px;padding:6px 18px;background:#b38a3a;color:#fff;border:none;border-radius:6px;cursor:pointer;">关闭</button>
+        <div id="popup-content" style="
+          height:calc(100% - 80px);
+          padding:30px 40px 0;
+          overflow-y:auto;
+          overflow-x:hidden;
+          line-height:1.6;
+        "></div>
+        <div style="
+          position:absolute;
+          bottom:0;
+          left:0;
+          right:0;
+          padding:20px 40px;
+          background:#fffbe6;
+          border-top:1px solid rgba(179,138,58,0.2);
+          text-align:center;
+        ">
+          <button id="popup-close" style="
+            padding:8px 24px;
+            background:#b38a3a;
+            color:#fff;
+            border:none;
+            border-radius:6px;
+            cursor:pointer;
+            font-size:1rem;
+            transition:background 0.3s ease;
+          ">关闭</button>
+        </div>
       `;
+
+  document.body.appendChild(overlay);
   document.body.appendChild(popup);
-  document.getElementById('popup-close').onclick = function() {
+
+  // 关闭弹窗的函数
+  function closePopup() {
     popup.style.display = 'none';
-  };
+    overlay.style.display = 'none';
+  }
+
+  // 点击关闭按钮关闭弹窗
+  document.getElementById('popup-close').onclick = closePopup;
+
+  // 点击遮罩层关闭弹窗
+  overlay.onclick = closePopup;
+
+  // 按ESC键关闭弹窗
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && popup.style.display === 'block') {
+      closePopup();
+    }
+  });
 });
 
 // ICII全景中国地图ECharts实现（ECharts 6.x，需手动加载geoJSON）
@@ -161,21 +230,24 @@ window.onload = function () {
 function showProvincePopup(provinceName) {
   var popup = document.getElementById('province-popup');
   var content = document.getElementById('popup-content');
-  if (popup && content) {
+  var overlay = document.getElementById('popup-overlay');
+
+  if (popup && content && overlay) {
     //查询json数据
-    fetch('/provinces.json')
+    fetch('./provinces.json')
       .then(res => res.json())
       .then(data => {
         var provinceData = data.find(item => item.name === provinceName);
         var desc = provinceData ? provinceData.description : '暂无相关信息';
-        content.innerHTML = `你点击了省份：<b>${provinceName}</b><br>${desc}。`;
+        content.innerHTML = `你点击了省份：<b>${provinceName}</b><br><br>${desc}`;
         popup.style.display = 'block';
+        overlay.style.display = 'block';
       })
       .catch(err => {
         console.error('省份数据加载失败:', err);
-        content.innerHTML = `你点击了省份：<b>${provinceName}</b><br>暂无相关信息。`;
+        content.innerHTML = `你点击了省份：<b>${provinceName}</b><br><br>暂无相关信息。`;
         popup.style.display = 'block';
+        overlay.style.display = 'block';
       });
-
   }
 }

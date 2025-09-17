@@ -21,6 +21,11 @@
 }
 
 body {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 60%), url('../img/bg_imh/丝路山水地图 (18).jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
   background-color: var(--eco-brown);
   /* 浅米黄背景，匹配原始风格 */
   color: #333;
