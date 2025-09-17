@@ -21,7 +21,9 @@ window.addEventListener('DOMContentLoaded', function () {
     left:0;
     width:100%;
     height:100%;
-    background:rgba(0,0,0,0.5);
+    background:rgba(0,0,0,0.3);
+    backdrop-filter:blur(8px);
+    -webkit-backdrop-filter:blur(8px);
     z-index:9998;
   `;
 
@@ -34,14 +36,16 @@ window.addEventListener('DOMContentLoaded', function () {
         left:50%;
         top:50%;
         transform:translate(-50%,-50%);
-        width:500px;
-        height:400px;
-        background:#fffbe6;
+        width:80vw;
+        height:80vh;
+        background:rgba(255,251,230,0.95);
+        backdrop-filter:blur(10px);
+        -webkit-backdrop-filter:blur(10px);
         border:2px solid #b38a3a;
         border-radius:12px;
         box-shadow:0 8px 32px rgba(0,0,0,0.18);
         font-size:1.2rem;
-        z-index:9999;
+        z-index:99999999;
         overflow:hidden;
       `;
   popup.innerHTML = `
@@ -51,6 +55,7 @@ window.addEventListener('DOMContentLoaded', function () {
           overflow-y:auto;
           overflow-x:hidden;
           line-height:1.6;
+          text-align:justify;
         "></div>
         <div style="
           position:absolute;
@@ -131,6 +136,10 @@ window.onload = function () {
             type: 'map',
             map: 'china',
             roam: true,
+            scaleLimit: {
+              min: 0.8,  // 最小缩放到80%
+              max: 3     // 最大缩放到300%
+            },
             layoutCenter: ['50%', '50%'], // 保证地图内容居中
             layoutSize: '90%', // 保证地图内容有留白，不贴边
             itemStyle: {
