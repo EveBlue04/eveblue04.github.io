@@ -1,10 +1,15 @@
 :root {
     /* 替换为黄白系列主色 */
-    --main-bg: #f8f5e6;          /* 浅米黄背景，原深绿背景替代 */
-    --cultural-color: #e0c97f;   /* 淡黄色，用于标题、链接 */
-    --tech-color: #b38a3a;       /* 棕黄色，用于强调文本、高亮 */
-    --eco-color: #2d3e504a;        /* 深蓝灰，用于深色区域替代（如左侧导航） */
-    --future-color: #fffbe6;     /* 淡黄高亮色，用于激活项左侧条 */
+    --main-bg: #f8f5e6;
+    /* 浅米黄背景，原深绿背景替代 */
+    --cultural-color: #e0c97f;
+    /* 淡黄色，用于标题、链接 */
+    --tech-color: #b38a3a;
+    /* 棕黄色，用于强调文本、高亮 */
+    --eco-color: #2d3e504a;
+    /* 深蓝灰，用于深色区域替代（如左侧导航） */
+    --future-color: #fffbe6;
+    /* 淡黄高亮色，用于激活项左侧条 */
 }
 
 * {
@@ -14,13 +19,15 @@
 }
 
 body {
-    background-image: linear-gradient(to bottom, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 60%), url('../img/bg_imh/丝路山水地图 (12).jpg');
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 60%), url('../img/bg_imh/丝路山水地图 (12).jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
-    background-color: var(--main-bg); /* 浅米黄背景 */
-    color: #333;                     /* 深灰色文字，原始风格 */
+    background-color: var(--main-bg);
+    /* 浅米黄背景 */
+    color: #333;
+    /* 深灰色文字，原始风格 */
     font-family: 'Cambria', serif;
     line-height: 1.6;
     overflow-x: hidden;
@@ -34,15 +41,25 @@ body {
 }
 
 /* Left Navigation */
+/* 隐藏左侧导航滚动条，但保留滚动功能 */
 .left-nav {
-    top: 9.5rem;
     height: calc(100vh - 5.5rem);
     width: 25%;
     position: fixed;
-    background-color: rgba(114, 101, 53, 0.72); /* 深蓝灰，替代原深绿 */
+    background-color: rgba(114, 101, 53, 0.72);
     padding: 40px 20px;
     overflow-y: auto;
-    border-right: 1px solid rgba(224, 201, 127, 0.3); /* 棕黄细边框 */
+    border-right: 1px solid rgba(224, 201, 127, 0.3);
+    /* 👇 隐藏滚动条（Webkit 浏览器） */
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE 10+ */
+}
+
+.left-nav::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
 }
 
 .nav-title {
@@ -86,22 +103,27 @@ body {
     top: 0;
     height: 100%;
     width: 4px;
-    background-color: var(--future-color); /* 淡黄条 */
+    background-color: var(--future-color);
+    /* 淡黄条 */
 }
 
 /* Main Content */
 .main-content {
     width: 65%;
-    margin-left: 25%; /* 与 left-nav 宽度对齐 */
+    margin-left: 25%;
+    /* 与 left-nav 宽度对齐 */
     padding: 60px 100px 80px;
 }
 
+/* ✅ 修正：让 section 高度由内容决定，不再强制撑满屏幕 */
 .team-section {
-    min-height: 100vh;
     margin-bottom: 100px;
+    /* 团队间保留间距 */
     display: grid;
-    grid-template-rows: 0.8fr min-content 1fr;
+    grid-template-rows: auto auto auto;
+    /* 三部分：海报、描述、文化连接，全部自适应 */
     gap: 30px;
+    /* ❌ 删除：min-height: 100vh */
 }
 
 /* Poster Section */
@@ -148,10 +170,12 @@ body {
     margin-bottom: 1.5em;
 }
 
-/* Cultural Connection */
+
+
+/* Cultural Connection — 更新为上下布局 */
 .cultural-connection {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
     gap: 25px;
     height: 100%;
 }
@@ -162,12 +186,13 @@ body {
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     position: relative;
+    grid-row: 1;
 }
 
 .cultural-image::before {
     content: '';
     display: block;
-    padding-top: 75%; /* 4:3 */
+    padding-top: 75%;
 }
 
 .cultural-image img {
@@ -185,6 +210,7 @@ body {
     padding: 25px;
     overflow-y: auto;
     color: #555;
+    grid-row: 2;
 }
 
 .cultural-text h3 {
@@ -198,11 +224,8 @@ body {
 .cultural-text p {
     line-height: 1.7;
     margin-bottom: 1.2em;
-}
-
-.tech-highlight {
-    color: var(--tech-color);
-    font-weight: bold;
+    text-indent: 2em;
+    /* ✅ 首行缩进 */
 }
 
 /* 当没有文化图片时，文字占满整行 */
@@ -221,6 +244,7 @@ body {
         width: 70%;
         margin-left: 25%;
     }
+
     .cultural-connection {
         grid-template-columns: 100%;
         grid-template-rows: 40% 60%;
@@ -231,11 +255,13 @@ body {
     .left-nav {
         width: 25%;
     }
+
     .main-content {
         width: 70%;
         margin-left: 25%;
         padding: 40px 25px;
     }
+
     .team-section {
         grid-template-rows: 35% 20% 45%;
     }
@@ -245,6 +271,7 @@ body {
     .container {
         flex-direction: column;
     }
+
     .left-nav {
         width: 100%;
         height: auto;
@@ -252,14 +279,17 @@ body {
         padding: 20px;
         max-height: 300px;
     }
+
     .main-content {
         width: 100%;
         margin-left: 0;
         padding: 30px 20px;
     }
+
     .team-section {
         grid-template-rows: 30% 25% 45%;
     }
+
     .cultural-connection {
         grid-template-columns: 100%;
         grid-template-rows: 40% 60%;
@@ -270,13 +300,16 @@ body {
     .nav-title {
         font-size: 1.4rem;
     }
+
     .team-list a {
         font-size: 1rem;
         padding: 10px;
     }
+
     .team-section {
         grid-template-rows: 25% 30% 45%;
     }
+
     .project-description,
     .cultural-text {
         padding: 15px;
