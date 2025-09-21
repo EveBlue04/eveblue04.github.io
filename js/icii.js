@@ -123,115 +123,120 @@ window.onload = function () {
     })
     .then(geoJson => {
       echarts.registerMap('china', geoJson);
-      var option = {
-        tooltip: {
-          trigger: 'item',
-          formatter: function (params) {
-            return params.name;
-          }
-        },
-        series: [
-          {
-            name: '中国',
-            type: 'map',
-            map: 'china',
-            roam: true,
-            scaleLimit: {
-              min: 0.8,  // 最小缩放到80%
-              max: 3     // 最大缩放到300%
-            },
-            layoutCenter: ['50%', '50%'], // 保证地图内容居中
-            layoutSize: '90%', // 保证地图内容有留白，不贴边
+      // 新增：加载省份描述信息
+      fetch('./provinces.json')
+        .then(res => res.json())
+        .then(provincesData => {
+          var provinceColors = provincesData.map(prov => ({
+            name: prov.name,
             itemStyle: {
-              areaColor: '#AB9363', // 蓝色
-              borderColor: '#fff',
-              borderWidth: 1
+              areaColor: prov.description !== '暂无相关信息' ? '#d6cda0' : '#AB9363'
+            }
+          }));
+          var option = {
+            tooltip: {
+              trigger: 'item',
+              formatter: function (params) {
+                return params.name;
+              }
             },
-            emphasis: {
-              itemStyle: {
-                areaColor: '#ffe9b8', // hover时暗淡的黄色（比正常状态更暗）
-                shadowBlur: 10,
-                shadowColor: 'rgba(0,0,0,0.3)'
+            series: [
+              {
+                name: '中国',
+                type: 'map',
+                map: 'china',
+                roam: true,
+                scaleLimit: {
+                  min: 0.8,
+                  max: 3
+                },
+                layoutCenter: ['50%', '50%'],
+                layoutSize: '90%',
+                itemStyle: {
+                  areaColor: '#AB9363',
+                  borderColor: '#fff',
+                  borderWidth: 1
+                },
+                emphasis: {
+                  itemStyle: {
+                    areaColor: '#ffe9b8',
+                    shadowBlur: 10,
+                    shadowColor: 'rgba(0,0,0,0.3)'
+                  },
+                  label: {
+                    color: 'rgba(64,41,24,0.2)',
+                    fontWeight: 'bold'
+                  }
+                },
+                label: {
+                  show: true,
+                  color: '#fff',
+                  fontSize: 12
+                },
+                data: provinceColors
               },
-              label: {
-                color: 'rgba(64,41,24,0.2)', // hover时字体颜色改为白色
-                fontWeight: 'bold'
+              {
+                name: 'Teams',
+                type: 'scatter',
+                coordinateSystem: 'geo',
+                data: teams.map(team => ({
+                  name: team.name,
+                  value: [...team.coords, 15]
+                })),
+                symbolSize: 15,
+                itemStyle: {
+                  color: '#9F4A2D'
+                },
+                emphasis: {
+                  itemStyle: {
+                    color: '#ff0000',
+                    borderColor: '#fff',
+                    borderWidth: 2
+                  }
+                }
               }
-            },
-            label: {
-              show: true,
-              color: '#fff',
-              fontSize: 12
-            },
-            data: []
-          },
-          {
-            name: 'Teams',
-            type: 'scatter',
-            coordinateSystem: 'geo',
-            data: teams.map(team => ({
-              name: team.name,
-              value: [...team.coords, 15]
-            })),
-            symbolSize: 15,
-            itemStyle: {
-              color: '#9F4A2D'
-            },
-            emphasis: {
-              itemStyle: {
-                color: '#ff0000',
-                borderColor: '#fff',
-                borderWidth: 2
+            ]
+          };
+          myChart.setOption(option);
+          // 省份点击弹窗机制（只保留事件绑定，不直接调用）
+          myChart.on('click', function (params) {
+            if (params.seriesType === 'map') {
+              showProvincePopup(params.name);
+            }
+          });
+
+          // Handle mouse events for team markers
+          myChart.on('mouseover', function (params) {
+            if (params.seriesType === 'scatter') {
+              const team = teams.find(t => t.name === params.name);
+              if (team) {
+                document.querySelector('.team-photo img').src = team.photo;
+                document.querySelector('.team-name').textContent = team.name;
+                document.querySelector('.team-city').textContent = team.city;
+                document.querySelector('.team-description').textContent = team.description;
+                teamInfoElement.style.display = 'block';
+                setTimeout(() => {
+                  teamInfoElement.classList.add('visible');
+                }, 10);
               }
             }
-          }
-        ]
-      };
-      myChart.setOption(option);
+          });
 
-      // 省份点击弹窗机制
-      myChart.on('click', function (params) {
-        if (params.seriesType === 'map') {
-          showProvincePopup(params.name);
-        }
-      });
-
-      // Handle mouse events for team markers
-      myChart.on('mouseover', function (params) {
-        if (params.seriesType === 'scatter') {
-          const team = teams.find(t => t.name === params.name);
-          if (team) {
-            document.querySelector('.team-photo img').src = team.photo;
-            document.querySelector('.team-name').textContent = team.name;
-            document.querySelector('.team-city').textContent = team.city;
-            document.querySelector('.team-description').textContent = team.description;
-
-            teamInfoElement.style.display = 'block';
-            setTimeout(() => {
-              teamInfoElement.classList.add('visible');
-            }, 10);
-          }
-        }
-      });
-
-      myChart.on('mouseout', function (params) {
-        if (params.seriesType === 'scatter') {
-          teamInfoElement.classList.remove('visible');
-          setTimeout(() => {
-            if (!teamInfoElement.classList.contains('visible')) {
-              teamInfoElement.style.display = 'none';
+          myChart.on('mouseout', function (params) {
+            if (params.seriesType === 'scatter') {
+              teamInfoElement.classList.remove('visible');
+              setTimeout(() => {
+                if (!teamInfoElement.classList.contains('visible')) {
+                  teamInfoElement.style.display = 'none';
+                }
+              }, 400);
             }
-          }, 400);
-        }
-      });
+          });
 
-      window.addEventListener('resize', function () {
-        myChart.resize();
-      });
-    })
-    .catch(err => {
-      console.error('中国地图geoJSON加载失败:', err);
-      chartDom.innerHTML = '<div style="color: #e2c1b0; text-align: center; padding: 20px; font-size: 1.2rem;">Map loading error. Please check your internet connection and refresh the page.</div>';
+          window.addEventListener('resize', function () {
+            myChart.resize();
+          });
+        });
     });
 };
 

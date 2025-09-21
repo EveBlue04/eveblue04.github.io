@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="84e871f2-935e-4c10-a048-7b24cfd54428" name="更改" comment="">
+      <change afterPath="$PROJECT_DIR$/css/forum.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/copilotDiffState.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/copilotDiffState.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/icii.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/icii.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/mainpage.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/mainpage.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dialog.html" beforeDir="false" afterPath="$PROJECT_DIR$/dialog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum.html" beforeDir="false" afterPath="$PROJECT_DIR$/forum.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/icii.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/icii.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,7 +28,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -39,30 +39,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "JavaScript 调试.404.html.executor": "Run",
-    "JavaScript 调试.about.html.executor": "Run",
-    "JavaScript 调试.dialog.html.executor": "Run",
-    "JavaScript 调试.forum.html.executor": "Run",
-    "JavaScript 调试.icii.html.executor": "Run",
-    "JavaScript 调试.index.html.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Node.js.mainpage.js.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "D:/000MyFiles/CodeScope/2025_iGEM_NAU_CHINA_WORKFLOW/ICII/20250822/img/bg_imh",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JavaScript 调试.404.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript 调试.about.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript 调试.dialog.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript 调试.forum.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript 调试.icii.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript 调试.index.html.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Node.js.mainpage.js.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/000MyFiles/CodeScope/2025_iGEM_NAU_CHINA_WORKFLOW/ICII/20250822/img/bg_imh&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\000MyFiles\CodeScope\2025_iGEM_NAU_CHINA_WORKFLOW\ICII\20250822\img\bg_imh" />
@@ -109,7 +109,8 @@
       <workItem from="1757682388420" duration="778000" />
       <workItem from="1757683549183" duration="4465000" />
       <workItem from="1757897379967" duration="4751000" />
-      <workItem from="1758020235384" duration="6722000" />
+      <workItem from="1758020235384" duration="7870000" />
+      <workItem from="1758428641566" duration="2196000" />
     </task>
     <servers />
   </component>
